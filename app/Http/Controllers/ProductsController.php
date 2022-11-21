@@ -73,10 +73,10 @@ class ProductsController extends Controller
     public function show($id)
     {
         try{
-            $products = Products::where('id', $id)->get();
+            $products = Products::where('id', $id)->first();
             return response()->json($products, 200);
             
-        }catch(\Error $error){
+        }catch(\Error $error){  
             return response()->json(['message' => $error], 500);
         }
     }
