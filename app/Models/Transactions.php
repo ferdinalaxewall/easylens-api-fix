@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Transactions;
+use App\Models\Accounts;
+use App\Models\Products;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Products extends Model
+class Transactions extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
-    
-    public function transactions(){
-        return $this->belongsTo(Transactions::class);
+
+    public function products(){
+        return $this->hasMany(Products::class, 'id');
     }
 }

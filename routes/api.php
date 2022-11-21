@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TransactionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,20 @@ Route::prefix("products")->group(function (){
     Route::get("/{id}", [ProductsController::class, 'show']);
     Route::post("/{id}", [ProductsController::class, 'update']);
     Route::delete("/{id}", [ProductsController::class, 'destroy']);
+});
+
+Route::prefix("users")->group(function (){
+    Route::get("/", [AccountsController::class, 'index']);
+    Route::post("/", [AccountsController::class, 'store']);
+    Route::get("/{id}", [AccountsController::class, 'show']);
+    Route::post("/{id}", [AccountsController::class, 'update']);
+    Route::delete("/{id}", [AccountsController::class, 'destroy']);
+});
+
+Route::prefix("transactions")->group(function (){
+    Route::get("/", [TransactionsController::class, 'index']);
+    Route::post("/", [TransactionsController::class, 'store']);
+    Route::get("/{id}", [TransactionsController::class, 'show']);
+    Route::post("/{id}", [TransactionsController::class, 'update']);
+    Route::delete("/{id}", [TransactionsController::class, 'destroy']);
 });

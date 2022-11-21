@@ -6,13 +6,9 @@ use App\Models\Transactions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Products extends Model
+class Accounts extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
-    
-    public function transactions(){
-        return $this->belongsTo(Transactions::class);
-    }
 }
